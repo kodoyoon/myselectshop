@@ -47,7 +47,7 @@ new NullPointerException("해당 상품을 찾을 수 없습니다.")
 
     return new ProductResponseDto(product);
   }
-
+@Transactional(readOnly = true)
   public Page<ProductResponseDto> getProducts(User user, int page, int size, String sortBy, boolean isAsc) {
     Sort.Direction direction = isAsc? Sort.Direction.ASC : Sort.Direction.DESC;
     Sort sort = Sort.by(direction, sortBy);
