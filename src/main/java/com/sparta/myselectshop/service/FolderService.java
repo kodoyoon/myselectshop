@@ -34,7 +34,7 @@ public class FolderService {
     folderRepository.saveAll(folderList);
   }
 
-  public List<FolderResponseDto> getFolder(User user) {
+  public List<FolderResponseDto> getFolders(User user) {
     List<Folder>  folderList = folderRepository.findAllByUser(user);
     List<FolderResponseDto> responseDtoList = new ArrayList<>();
 
