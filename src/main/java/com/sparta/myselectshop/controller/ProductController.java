@@ -42,7 +42,7 @@ public class ProductController {
 
   }
 
-  @PostMapping("/products/{prodcutId}/folder")
+  @PostMapping("/products/{productId}/folder")
   public void addFolder(
       @PathVariable Long productId,
       @RequestParam Long folderId,

@@ -85,13 +85,13 @@ new NullPointerException("해당 상품을 찾을 수 없습니다.")
         ()  -> new NullPointerException("해당 폴더가 존재하지 않습니다.")
     );
 
-    if(product.getUser().getId().equals(user.getId())
+    if(!product.getUser().getId().equals(user.getId())
    || !folder.getUser().getId().equals(user.getId())) {
 
   throw new IllegalArgumentException("회원님의 관심상품이 아니거나, 회원님의 폴더가 아닙니다.");
     }
 
-Optional<ProductFolder>  overlapFolder = productFolderRepository.findByProductAndFolder(product, folder);
+    Optional<ProductFolder> overlapFolder = productFolderRepository.findByProductAndFolder(product, folder);
 
     if(overlapFolder.isPresent()) {
       throw new IllegalArgumentException("중복된 폴더입니다.");
