@@ -38,11 +38,11 @@ public class Product extends Timestamped {
   private int myprice;
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "user_id", nullable=false)
-  private User user; // 참조할거
+  @JoinColumn(name = "user_id", nullable = false)
+  private User user;
 
   @OneToMany(mappedBy = "product")
-  private List<ProductFolder> productdFolderList = new ArrayList<>();
+  private List<ProductFolder> productFolderList = new ArrayList<>();
 
   public Product(ProductRequestDto requestDto, User user) {
     this.title = requestDto.getTitle();
